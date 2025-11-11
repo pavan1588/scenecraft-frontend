@@ -1,22 +1,15 @@
 ﻿"use client";
-
-import { useEffect } from "react";
 import { signIn } from "next-auth/react";
 
-export default function SignInPage() {
-  useEffect(() => {
-    // Trigger Google sign-in immediately; fallback button remains visible.
-    signIn("google", { callbackUrl: "/workspace" });
-  }, []);
-
+export default function SignIn() {
   return (
-    <main className="min-h-screen grid place-items-center p-6">
-      <div className="max-w-md text-center space-y-6">
-        <h1 className="text-3xl font-bold">Sign in to SceneCraft AI</h1>
-        <p>Continue with Google to access your workspace.</p>
+    <main className="min-h-[70vh] grid place-items-center p-8">
+      <div className="max-w-md w-full text-center space-y-6">
+        <h1 className="text-3xl font-semibold">Sign in to SceneCraft</h1>
+        <p className="text-slate-500">Continue with your Google account.</p>
         <button
-          onClick={() => signIn("google", { callbackUrl: "/workspace" })}
-          className="rounded-xl bg-slate-900 px-4 py-2 text-white"
+          onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+          className="rounded-xl px-5 py-3 bg-black text-white hover:opacity-90"
         >
           Continue with Google
         </button>
