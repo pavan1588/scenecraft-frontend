@@ -1,5 +1,10 @@
 ﻿{
   "redirects": [
-    { "source": "/", "destination": "https://www.scenecraft-ai.com", "permanent": true }
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "scenecraft-ai.com" }],
+      "destination": "https://www.scenecraft-ai.com/:path",
+      "permanent": true
+    }
   ]
 }
