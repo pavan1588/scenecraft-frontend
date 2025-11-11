@@ -1,0 +1,5 @@
+﻿{
+  "redirects": [
+    { "source": "/", "destination": "https://www.scenecraft-ai.com", "permanent": true }
+  ]
+}
