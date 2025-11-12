@@ -1,0 +1,27 @@
+{
+  "name": "scenecraft-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "postinstall": "next telemetry disable"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "next-auth": "^4.24.7"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "typescript": "^5.6.2",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25"
+  }
+}
