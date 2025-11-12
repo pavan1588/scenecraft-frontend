@@ -1,4 +1,4 @@
-{
+﻿{
     "compilerOptions":  {
                             "lib":  [
                                         "dom",
@@ -23,10 +23,10 @@
                                         ],
                             "paths":  {
                                           "@/*":  [
-                                                      "./*"
+                                                      "*"
                                                   ]
                                       },
-                            "baseUrl":  "."
+                            "baseUrl":  "src"
                         },
     "include":  [
                     "next-env.d.ts",
