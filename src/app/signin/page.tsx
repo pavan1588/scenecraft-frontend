@@ -1,14 +1,5 @@
-"use client";
-import { useEffect } from "react";
-import { signIn } from "next-auth/react";
-
-export default function SignIn() {
-  useEffect(() => {
-    void signIn("google", { callbackUrl: "/" });
-  }, []);
-  return (
-    <div style={{display:"grid",placeItems:"center",minHeight:"60vh"}}>
-      <p>Redirecting to Google</p>
-    </div>
-  );
+﻿import { redirect } from "next/navigation";
+export default function Page() {
+  redirect("/api/auth/signin?callbackUrl=/");
+  return null;
 }
