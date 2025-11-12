@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a className="hover:opacity-80" href="#features">Features</a>
               <a className="hover:opacity-80" href="#analytics">Analytics</a>
               <a className="hover:opacity-80" href="#pricing">Pricing</a>
-              <a className="hover:opacity-80" href="/signin">Sign In</a>
+              <a className="hover:opacity-80" href="/api/auth/signin">Sign In</a>
               <a className="rounded-xl bg-slate-900 text-white px-4 py-2 hover:opacity-90" href="#get-started">Get Started</a>
             </nav>
           </div>
@@ -32,4 +32,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
 
