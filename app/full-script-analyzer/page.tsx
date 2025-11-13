@@ -1,11 +1,15 @@
-﻿"use client";
+﻿'use client';
+
+export const dynamic = 'force-dynamic';
 
 import { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function FullScriptAnalyzerPage() {
-  const { data: session, status } = useSession();
+  const sessionResult = useSession();
+  const session = sessionResult?.data;
+  const status = sessionResult?.status ?? 'unauthenticated';
   const router = useRouter();
 
   useEffect(() => {
@@ -31,3 +35,4 @@ export default function FullScriptAnalyzerPage() {
     </main>
   );
 }
+
