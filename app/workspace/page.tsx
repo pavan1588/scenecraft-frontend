@@ -1,23 +1,12 @@
-﻿"use client";
+﻿import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "@/lib/auth";
 
-import { useSession } from "next-auth/react";
-
-export default function WorkspacePage() {
-  const { data: session, status } = useSession();
-
-  if (status === "loading") {
-    return (
-      <main className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-slate-500">Checking your session</p>
-      </main>
-    );
-  }
+export default async function WorkspacePage() {
+  const session = await getServerSession(authOptions);
 
   if (!session) {
-    if (typeof window !== "undefined") {
-      window.location.href = "/api/auth/signin?callbackUrl=/workspace";
-    }
-    return null;
+    redirect("/api/auth/signin?callbackUrl=/workspace");
   }
 
   return (
@@ -25,7 +14,8 @@ export default function WorkspacePage() {
       <header className="flex items-center justify-between border-b bg-white px-6 py-4">
         <div className="font-semibold">SceneCraft AI</div>
         <p className="text-sm text-slate-600">
-          Signed in as <span className="font-medium">{session.user?.email}</span>
+          Signed in as{" "}
+          <span className="font-medium">{session.user?.email}</span>
         </p>
       </header>
 
