@@ -13,7 +13,7 @@
             SceneCraft AI transforms how writers develop scenes and scripts. Analyze, get feedback, and collaborate—seamlessly.
           </p>
           <div className="mt-8 flex gap-4">
-            <a href="/analyzer" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium hover:opacity-90">Try Scene Analyzer</a>
+            <a href="/api/auth/signin?callbackUrl=/workspace" className="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium hover:opacity-90">Try Scene Analyzer</a>
             <a href="#pricing" className="rounded-xl border px-5 py-3 text-sm font-medium hover:bg-slate-50">Pricing</a>
           </div>
         </div>
@@ -48,3 +48,4 @@
     </>
   );
 }
+

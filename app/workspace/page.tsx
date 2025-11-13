@@ -1,27 +1,42 @@
-﻿import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
-import { authOptions } from "@/lib/auth";
+﻿"use client";
 
-export default async function Workspace() {
-  const session = await getServerSession(authOptions);
-  if (!session) redirect("/signin");
+import { useSession } from "next-auth/react";
+
+export default function WorkspacePage() {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return (
+      <main className="min-h-screen flex items-center justify-center">
+        <p className="text-sm text-slate-500">Checking your session</p>
+      </main>
+    );
+  }
+
+  if (!session) {
+    if (typeof window !== "undefined") {
+      window.location.href = "/api/auth/signin?callbackUrl=/workspace";
+    }
+    return null;
+  }
 
   return (
-    <main className="min-h-screen p-8 space-y-8">
-      <h1 className="text-4xl font-bold">Your Project Space</h1>
-      <p className="text-slate-600">
-        Welcome, {session.user?.name ?? "creator"}.
-      </p>
+    <main className="min-h-screen bg-slate-50">
+      <header className="flex items-center justify-between border-b bg-white px-6 py-4">
+        <div className="font-semibold">SceneCraft AI</div>
+        <p className="text-sm text-slate-600">
+          Signed in as <span className="font-medium">{session.user?.email}</span>
+        </p>
+      </header>
 
-      <section className="grid gap-4 md:grid-cols-2">
-        <a href="/analyzer" className="rounded-2xl border p-6 hover:bg-slate-50">
-          <h2 className="font-semibold text-xl">Scene Analyzer</h2>
-          <p className="text-sm text-slate-600">Analyze scenes and save results.</p>
-        </a>
-        <a href="/collab" className="rounded-2xl border p-6 hover:bg-slate-50">
-          <h2 className="font-semibold text-xl">Collaboration</h2>
-          <p className="text-sm text-slate-600">Invite reviewers and collect comments.</p>
-        </a>
+      <section className="mx-auto max-w-5xl px-6 py-10 space-y-4">
+        <h1 className="text-2xl font-bold text-slate-900">
+          Workspace
+        </h1>
+        <p className="text-sm text-slate-600">
+          This is your SceneCraft workspace. From here well plug in Scene Analyzer,
+          Full Script tools and other features.
+        </p>
       </section>
     </main>
   );
