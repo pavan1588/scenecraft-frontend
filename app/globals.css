@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* simple site-wide tokens */
-:root{ --sc-primary:#0b0d1a; --sc-accent:#5b43ff; }
-body{ font-feature-settings: "ss01" 1; }
+html,
+body {
+  min-height: 100%;
+}

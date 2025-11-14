@@ -1,6 +1,6 @@
-﻿// PostCSS config for SceneCraft + Tailwind v4
-module.exports = {
+﻿module.exports = {
   plugins: {
-    "@tailwindcss/postcss": {},
+    tailwindcss: {},
+    autoprefixer: {},
   },
 };
